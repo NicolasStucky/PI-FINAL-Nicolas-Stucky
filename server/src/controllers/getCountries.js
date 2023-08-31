@@ -31,9 +31,12 @@ const {Country}=require('../db.js');
                 })
                 return country
             })
-        )             
+        )
+        if(res){             
         return res.send(countries);
-        
+        }else{
+            return
+        }
 }
 
 module.exports = {

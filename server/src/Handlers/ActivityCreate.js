@@ -14,7 +14,7 @@ const createActivity = async (req, res) => {
     
     const foundCountries = await Country.findAll({
       where: {
-        imagen: {
+        id: {
           [Op.in]: countries,
         },
       },
