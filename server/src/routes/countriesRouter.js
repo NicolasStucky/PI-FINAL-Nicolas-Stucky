@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getCountries,getForIdDb } = require('../handlers/countriesHandler');
+const { getCountries,getForIdDb } = require('../Handlers/getCountries');
  
 const countriesRouter = Router()
 countriesRouter.get("/",getCountries)

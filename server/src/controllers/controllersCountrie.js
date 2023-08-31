@@ -2,11 +2,14 @@ const { Op } = require('sequelize');
 const {Country,Activity}= require('../db')
 
 const createCountries = async(name,capital,image) =>{
-const newCountrie = await Country.create({name,capital,image})
+const newCountrie = await Country.create({
+    name,capital,image
+})
 return newCountrie
 };
 
 const countriesBd = async (name) => {
+    const { Op } = require('sequelize');
 
     if (name) {
         const countries = await Country.findAll({

@@ -20,7 +20,6 @@ const createActivity = async (req, res) => {
       },
     });
 
-    // Establish associations with the found countries
     await newActivity.setCountries(foundCountries);
 
     res.status(200).json(newActivity);
@@ -33,3 +32,4 @@ const createActivity = async (req, res) => {
 module.exports = {
   createActivity,
 };
+

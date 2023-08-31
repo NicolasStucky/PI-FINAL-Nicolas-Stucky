@@ -1,7 +1,8 @@
 const { Router } = require("express");
-const {getCountriesDb} = require('../controllers/getCountries')
-const countriesRouter = require('../routes/countries')
-const activityRouter = require('../routes/activities')
+const {getCountriesDb} = require('../Controllers/getcountries')
+const countriesRouter = require('../routes/countriesRouter')
+const activityRouter = require('../routes/activityRouter')
+
 const router = Router();
 
 router.get("/", getCountriesDb)
