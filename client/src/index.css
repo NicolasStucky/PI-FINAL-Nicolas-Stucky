@@ -25,11 +25,16 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url('./assets/grafico-soporte-global-continente-mapa-mundo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
+
 
 h1 {
   font-size: 3.2em;

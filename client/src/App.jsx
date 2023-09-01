@@ -1,18 +1,28 @@
-import './App.css';
-import React from 'react';
-import { BrowserRouter as Routes, Route, Switch } from 'react-router-dom';
-import LandingPage from './components/Landin Page/inicio';
 
-const App = () => {
+import  style from './App.module.css'
+import Home from './Componentes/Home/Home'
+import LandingPage from './Componentes/Landing/LandingPage'
+import {Route,Routes} from 'react-router-dom'
+import Navbar from './Componentes/Navbar/Navbar'
+import Detail from './Componentes/Detail/Detail'
+import Form from './Componentes/Form/Form'
+import { useLocation } from 'react-router-dom'
+import Activity from './Componentes/Activities/Activity'
+function App() {
+  const location = useLocation()
   return (
-    <div className='App'>
-      <Routes>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/home" component={HomePage} />
-        {/* Agrega otras rutas aquí */}
-      </Routes>
-    </div>
-  );
-};
+    <div className={style.app}>
 
-export default App;
+    {location.pathname !== "/" &&  location.pathname !== "/About" && <Navbar/>}
+<Routes>
+  <Route path='/Detail/:id' element={<Detail/>}/>
+  <Route path='/' element={<LandingPage/>}/>
+  <Route path='/Home' element={<Home/>}/>
+  <Route path='/createActivity'element={<Form/>}/>
+  <Route path='/Activity' element={<Activity/>}/>
+</Routes>
+    </div>
+  )
+}
+
+export default App

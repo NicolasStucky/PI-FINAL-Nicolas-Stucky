@@ -1,0 +1,75 @@
+.Home {
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+ 
+  max-width: 100%;
+}
+.paginationButtons{
+  display: flex;
+  justify-content: center;
+}
+.pagination {
+  margin-top: 15px;
+  background-color: #007bff;
+  color: #fff; 
+  height: 0%;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.pagination:hover {
+  background-color: #0056b3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.pagination:disabled {
+  background-color: #130c0c;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.paginationButtons{
+  margin-top: 10px;
+}
+.pagination:active {
+  background-color: #003972;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.activePage {
+  background-color: #62dcec; 
+  color: #fff; 
+  border: 2px solid #edeff1;
+  cursor: pointer; 
+  border-radius: 50px;
+}
+
+
+.notactive {
+  background-color: #f0f0f0; 
+  border-radius: 50px;
+  border: 2px solid #ccc;
+  cursor: default; 
+}
+
+
+.pageButtons {
+  padding: 10px 20px; 
+  border-radius: 5px;
+  font-size: 16px; 
+  transition: background-color 0.3s, color 0.3s, border 0.3s; 
+}
+
+
+.pageButtons:active {
+  background-color: #161718; 
+  border-color: #0056b3; 
+}

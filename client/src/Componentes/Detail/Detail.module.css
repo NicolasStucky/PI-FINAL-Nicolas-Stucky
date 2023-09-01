@@ -1,0 +1,107 @@
+/* Detail.module.css */
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+ /* Detail.module.css */
+
+@keyframes rotateImage {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes moveText {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(20px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .img {
+    display: flex;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: rgb(21, 111, 189);
+    width: 30%;
+  }
+  
+  .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .eia {
+    background-color: rgba(28, 28, 29, 0.7); 
+    font-family: 'Arial', sans-serif;
+    color: #faf9f9;
+    padding: 20px;
+    border-radius: 50px;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: moveText 3s infinite alternate; 
+    margin-top: 100px;
+  }
+  
+  .eia::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 20px;
+    background-color: #979390;
+    border-radius: 50%;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .activityContainer {
+    display: flex;
+    flex-direction: column;
+   height: 100%;
+   justify-content: center;
+   align-items: center;
+    background-color: rgba(38, 38, 39, 0.877); 
+   font-family: 'Arial', sans-serif;
+   color: #e6e5e5;
+   padding: 20px;
+   border-radius: 50px;
+   width: 35%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+   position: relative;
+   animation: moveText 3s infinite alternate; 
+ 
+   margin-left: 40px;
+  }
+  
+  .activityDetails {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin-top: 20px;
+  }
+  .contenedoract{
+    padding: 50px;
+    margin-top: 0px;
+  }

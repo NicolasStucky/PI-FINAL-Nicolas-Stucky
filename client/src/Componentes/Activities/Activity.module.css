@@ -1,0 +1,23 @@
+/* Activity.module.css */
+
+.activityList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .activityItem {
+    background-color: #ec6c6c;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
