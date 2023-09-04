@@ -43,7 +43,7 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         countries: state.allcountries.filter(
-          (elemento) => elemento.continente === action.payload
+          (elemento) => elemento.continent === action.payload
         ),
       };
     case ORDER:
@@ -69,9 +69,9 @@ export default function reducer(state = initialState, action) {
         case ORDER_POBLACION:
           const countriesByPopAsc = [...state.countries];
           if(action.payload === "Menos"){
-            countriesByPopAsc.sort((a, b) => a.poblacion - b.poblacion);
+            countriesByPopAsc.sort((a, b) => a.population - b.population);
           }else{
-            countriesByPopAsc.sort((a, b) => b.poblacion - a.poblacion);
+            countriesByPopAsc.sort((a, b) => b.population - a.population);
           }
           return {
             ...state,

@@ -121,7 +121,7 @@ const Form = () => {
     }
   };
 
-  console.log(formData);
+  
   return (
     <form onSubmit={handleSubmit} className={style.formulario}>
       <div className={style.form}>

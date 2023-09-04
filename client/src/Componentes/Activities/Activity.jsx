@@ -16,7 +16,7 @@ const Activity = () => {
         {activities?.map((elemento, index) => (
           <li key={index} className={style.activityItem}>
             <div className={style.activityContent}>
-              <strong>Nombre:</strong> {elemento.name}
+              <strong>Actividad:</strong> {elemento.name}
               <br />
               <strong>Dificultad:</strong> {elemento.dificultad}
               <br />

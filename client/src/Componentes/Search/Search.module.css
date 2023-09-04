@@ -48,6 +48,6 @@
   }
 
   .buttonArriba:hover {
-    box-shadow: 0 0 13px rgba(0, 0, 0, 0.5); /* Aplica solo un cambio en la sombra */
+    box-shadow: 0 0 13px rgba(0, 0, 0, 0.5);
   }
   

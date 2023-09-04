@@ -33,7 +33,7 @@ const HandlerPoblacion = (event) =>{
           <button className={style.button}>Home</button>
         </Link>
         <Link to="/Activity">
-          <button className={style.button}>Activityes</button>
+          <button className={style.button}>Activities</button>
         </Link>
       </div>
       <div className={style.selectcontainer}>

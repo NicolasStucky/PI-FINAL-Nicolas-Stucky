@@ -59,10 +59,10 @@ export const getCountriesForName = (name) => {
   };
 };
 
-export const filterforcontinent = (continente) => {
+export const filterforcontinent = (continent) => {
   return {
     type: FILTER_FOR_CONTINENT,
-    payload: continente,
+    payload: continent,
   };
 };
 

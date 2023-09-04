@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getactivity, getcharacter, setPage } from "../../Redux/Actions";
 import Card from "../Card/Card";
 import style from "./Home.module.css";
+import Load from "../Load/load"
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -58,7 +59,7 @@ const Home = () => {
             area={elemento.area} />
         ))
       ) : (
-        <h/>
+        <Load/>
       )}
     </div><div className={style.paginationButtons}>
         {showPagination && (
