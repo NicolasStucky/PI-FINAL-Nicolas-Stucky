@@ -23,6 +23,7 @@ const Home = () => {
     indexOfFirstCountry,
     indexOfLastCountry
   );
+  
 
   const handlePageChange = (pageNumber) => {
     dispatch(setPage(pageNumber));
