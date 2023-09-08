@@ -24,7 +24,7 @@ const Activity = () => {
               <br />
               <strong>Temporada:</strong> {elemento.temporada}
               <br/>
-              <strong>Paises:</strong>
+              <strong>Paises:</strong> 
               {elemento.Countries &&
                 elemento.Countries.map((country, countryIndex) => (
                   <li key={countryIndex}>{country.name}</li>

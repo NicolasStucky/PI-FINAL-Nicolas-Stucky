@@ -3,7 +3,7 @@ const { Op } = require("sequelize");
 
 const createActivity = async (req, res) => {
   const { name, dificultad, temporada, duracion, countries } = req.body;
-
+  console.log(countries);
   try {
     const newActivity = await Activity.create({
       name,
@@ -14,12 +14,12 @@ const createActivity = async (req, res) => {
     
     const foundCountries = await Country.findAll({
       where: {
-        id: {
+        name: {
           [Op.in]: countries,
         },
       },
     });
-
+    console.log(foundCountries);
     await newActivity.setCountries(foundCountries);
 
     res.status(200).json(newActivity);
