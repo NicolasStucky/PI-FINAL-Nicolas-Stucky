@@ -6,9 +6,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100vw; /* Cambiado de vh a vw para ajustar al ancho de la ventana */
+  width: 100vw; 
   height: 100vh;
-  margin: 0; /* Eliminar márgenes por defecto del cuerpo de la página */
+  margin: 0; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,14 +20,13 @@
 
 
 .div {
-  /* Otras propiedades de estilo */
   background-image: url("https://www.portalastronomico.com/wp-content/uploads/2020/04/1083199739_0_221_1415_986_1000x541_80_0_0_2aa616fc3a78e516ba52e0d9d2ad3580.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100vw; /* Cambiado de vh a vw para ajustar al ancho de la ventana */
+  width: 100vw;
   height: 100vh;
-  margin: 0; /* Eliminar márgenes por defecto del cuerpo de la página */
+  margin: 0; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,7 +61,6 @@ h1 {
 }
 
 .button {
-  /* Estilos generales del botón */
   padding: 10px 20px;
   background-color: rgb(151, 144, 144);
   color: white;

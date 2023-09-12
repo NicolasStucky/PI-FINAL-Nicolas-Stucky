@@ -89,10 +89,7 @@ export const reset = () => {
 export const createActivity = (activityData) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(
-        "http://localhost:3001/activity",
-        activityData
-      );
+      const response = await axios.post("http://localhost:3001/activity",activityData);
       dispatch({
         type: CREATE_ACTIVITY,
         payload: response.data, 
@@ -115,10 +112,10 @@ export const orderForPoblacion = (num) =>{
 
 export const getactivity = () =>{
 return async (dispatch)=>{
-const {data} = await axios.get("http://localhost:3001/activity")
-dispatch({
-type:GET_ACTIVITY,
-payload:data
-})
-}
+  const {data} = await axios.get("http://localhost:3001/activity")
+    dispatch({
+      type:GET_ACTIVITY,
+      payload:data
+    })
+  }
 }

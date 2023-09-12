@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
       allowNull: true,
     },
     population: {
-      type: DataTypes.INTEGER, // Change the data type to INTEGER if "elemento.population" is an integer
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   });

@@ -8,27 +8,6 @@
   }
  /* Detail.module.css */
 
-@keyframes rotateImage {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  @keyframes moveText {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(20px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  
   .img {
     display: flex;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);

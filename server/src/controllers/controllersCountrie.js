@@ -9,8 +9,6 @@ return newCountrie
 };
 
 const countriesBd = async (name) => {
-    const { Op } = require('sequelize');
-
     if (name) {
         const countries = await Country.findAll({
             where: {
@@ -56,7 +54,7 @@ const getForIdCountries = async (id) => {
 
 
 module.exports = {
-createCountries,
-countriesBd,
-getForIdCountries
+    createCountries,
+    countriesBd,
+    getForIdCountries
 }
