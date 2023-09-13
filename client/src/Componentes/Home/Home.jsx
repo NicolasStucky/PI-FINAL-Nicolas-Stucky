@@ -16,34 +16,34 @@ const Home = () => {
     dispatch(getactivity());
   }, [dispatch]);
 
+        //PAGINADO//
   const totalPages = Math.ceil(countries.length / countriesPerPage);
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
-  const currentCountries = countries.slice(
-    indexOfFirstCountry,
-    indexOfLastCountry
-  );
-  
-
-  const handlePageChange = (pageNumber) => {
-    dispatch(setPage(pageNumber));
-  };
+  const currentCountries = countries.slice(indexOfFirstCountry,indexOfLastCountry
+);
 
   const showPagination = countries.length > 10;
 
+           //ANTERIOR Y SIGUIENTE//
+  const handlePageChange = (pageNumber) => {
+    dispatch(setPage(pageNumber));
+  };
   const pageButtons = [];
+
   for (let i = 1; i <= totalPages; i++) {
     pageButtons.push(
       <button
         key={i}
         onClick={() => handlePageChange(i)}
         className={currentPage === i ? style.activePage : style.notactive}
-      >
-        {i}
+      >{i}
       </button>
     );
   }
 
+
+        //INFO DE LAS CARDS EN HOME//
   return (
     <><div className={style.Home}>
       {currentCountries && currentCountries.length > 0 ? (
@@ -62,7 +62,11 @@ const Home = () => {
       ) : (
         <Load/>
       )}
-    </div><div className={style.paginationButtons}>
+    </div>
+    
+    {/* FUNCIONALIDAD DE BOTONES ANTERIOR Y SIGUIENTE */}
+
+    <div className={style.paginationButtons}>
         {showPagination && (
           <>
         <button
