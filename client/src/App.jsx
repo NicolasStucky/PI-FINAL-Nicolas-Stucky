@@ -13,7 +13,7 @@ function App() {
   return (
     <div className={style.app}>
 
-<Navbar/>
+{location.pathname !== "/"  && <Navbar/>}
 <Routes>
   <Route path='/Detail/:id' element={<Detail/>}/>
   <Route path='/' element={<LandingPage/>}/>

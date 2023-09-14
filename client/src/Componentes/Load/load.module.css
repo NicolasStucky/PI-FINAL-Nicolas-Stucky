@@ -11,18 +11,15 @@
   }
   
 .loader::before {
-    content: "Loading...";
+    content: "Pais No Encontrado";
     line-height: 1em;
-    color: #0000;
+    color: #faf2f200;
     background: inherit;
     background-image: radial-gradient(circle closest-side,#fff 94%,#000);
     -webkit-background-clip:text;
             background-clip:text;
   }
   
-  @keyframes l24{
-    100%{background-position: left}
-  }
 
 /* HTML: <div class="loader"></div> */
 .loader {

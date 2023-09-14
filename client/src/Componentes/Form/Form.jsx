@@ -12,6 +12,7 @@ const Form = () => {
     dificultad: "",
     duracion: "",
     countries: [],
+    countryname: ""
   });
 
   const [errors, setErrors] = useState({
@@ -22,12 +23,12 @@ const Form = () => {
     countries: "",
   });
 
-  const clickbandera = (event) => {
-    const countryToRemove = event.target.getAttribute("data-country");
+  const clickbandera = (event, countryname) => {
+    event.stopPropagation(); 
     const updatedCountries = formData.countries.filter(
-      (country) => country !== countryToRemove
+      (country) => country !== countryname
     );
-
+  
     setFormData({
       ...formData,
       countries: updatedCountries,
@@ -81,6 +82,7 @@ const Form = () => {
       const uniqueSelectedCountryIds = selectedCountryIds.filter(
         (id) => !formData.countries.includes(id)
       );
+      console.log(formData.countries+" selected country");
 
       if (formData.countries.length + uniqueSelectedCountryIds.length > 5) {
         return;
@@ -127,10 +129,9 @@ const Form = () => {
     event.preventDefault();
     validate();
 
-    if (
       Object.values(errors).every((error) => error === "") &&
       formData.countries.length > 0
-    ) {
+     {
       try {
         await dispatch(createActivity(formData));
         cleanForm();
@@ -245,7 +246,6 @@ const Form = () => {
         <div className={style.select}>
           <select
             name="countries"
-            value={formData.countries}
             onChange={handleChange}
             multiple
             size={Math.min(6, countriess.length)}
@@ -261,27 +261,24 @@ const Form = () => {
         </div>
         <p>Paises seleccionados: </p>
         <div className={style.selectedImages}>
-          {formData.countries.map((imageSrc, index) => (
-            <div key={index} className={style.selectedImageContainer}>
-              <img
-                src={imageSrc}
-                alt={`Country ${index}`}
-                className={style.selectedImage}
-              />
-              <button
-                data-country={imageSrc}
-                onClick={clickbandera}
-                className={style.removeButton}
-              >
-                x
-              </button>
-            </div>
-          ))}
+        {formData.countries.map((countryname) => (
+          <div className={style.selectedImageContainer} key={countryname}>
+          <p>{countryname}</p>
+          <br />
+          <button
+          onClick={(event) => clickbandera(event, countryname)}
+          className={style.removeButton}
+          >
+          x
+          </button>
+          </div>
+        ))}
         </div>{
           formData.countries.length === 0?(
             <span>{errors.countries}</span>
           ): null
         }
+        
 
         <button disabled={disbleSend()} className={style.submitBtn} type="submit">
           Submit

@@ -38,8 +38,3 @@ module.exports = {
   ...sequelize.models, 
   conn: sequelize,   
 };
-
-module.exports = {
-  ...sequelize.models, 
-  conn: sequelize, 
-};
