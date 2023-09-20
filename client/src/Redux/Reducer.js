@@ -2,7 +2,7 @@ import {
   GET_ALL_CHARACTER,
   GET_FOR_ID,
   GET_FOR_NAME,
-  FILTER_FOR_CONTINENT,
+  FILTER,
   ORDER,
   SET_PAGE,
   RESET,
@@ -27,6 +27,51 @@ export default function reducer(state = initialState, action) {
         countries: action.payload,
         allcountries: action.payload,
       };
+    case FILTER:
+        const {continentFilter, activityFilter}=action.payload
+        const countriesFilter=[]
+        const countriesCopy=[...state.allcountries]
+
+        if(continentFilter && activityFilter){
+          const countriesByContinent=countriesCopy.filter((country)=>country.continent===continentFilter)
+          for(let country of countriesByContinent){
+            country.Activities.forEach((activity)=>{
+              if(activity.name===activityFilter){
+                countriesFilter.push(country)
+              }
+            })
+          }
+          return{
+            ...state,
+            countries:countriesFilter,
+            currentPage:1
+          }
+        }else if(activityFilter){
+            const activitiesFilter=[]
+            for(let country of countriesCopy){
+              country.Activities.forEach((activity)=>{
+                if(activity.name===activityFilter){
+                  activitiesFilter.push(country)
+                }
+              })
+            }
+            return {
+              ...state,
+              countries:activitiesFilter,
+              currentPage:1
+            }
+        } else if(continentFilter){
+          const countriesByContinent=countriesCopy.filter((country)=>{
+            return country.continent ===continentFilter
+          })
+          return {
+            ...state,
+            countries:countriesByContinent,
+            currentPage:1
+          }
+        }
+
+
     case GET_FOR_ID:
       return {
         ...state,
@@ -38,13 +83,6 @@ export default function reducer(state = initialState, action) {
         countries: Array.isArray(action.payload)
           ? action.payload
           : [action.payload],
-      };
-    case FILTER_FOR_CONTINENT:
-      return {
-        ...state,
-        countries: state.allcountries.filter(
-          (elemento) => elemento.continent === action.payload
-        ),
       };
     case ORDER:
       const copycountries = [...state.countries];

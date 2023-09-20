@@ -23,8 +23,9 @@ const Form = () => {
     countries: "",
   });
 
+  //* * PROBLEMA RECUPERATORIO * *//
   const clickbandera = (event, countryname) => {
-    event.stopPropagation(); 
+    event.stopPropagation(); //* * SOLUCION * *//
     const updatedCountries = formData.countries.filter(
       (country) => country !== countryname
     );
@@ -266,8 +267,8 @@ const Form = () => {
           <p>{countryname}</p>
           <br />
           <button
-          onClick={(event) => clickbandera(event, countryname)}
-          className={style.removeButton}
+            onClick={(event) => clickbandera(event, countryname)}
+            className={style.removeButton}
           >
           x
           </button>

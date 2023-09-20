@@ -18,7 +18,7 @@ const countriesBd = async (name) => {
             },
             include: {
                 model: Activity, 
-
+                attributes:["id","name", "duracion", "dificultad", "temporada"]
             }
         });
         return countries;
@@ -27,6 +27,7 @@ const countriesBd = async (name) => {
     const allCountries = await Country.findAll({
         include: {
             model: Activity,
+            attributes:["id","name", "duracion", "dificultad", "temporada"]
         }
     });
     return allCountries;

@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Search from '../Search/Search';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
+import {useState} from "react"
 import style from './Navbar.module.css';
-import { filterforcontinent, orderCountries, orderForPoblacion, reset } from '../../Redux/Actions';
+import { filter, orderCountries, orderForPoblacion, reset } from '../../Redux/Actions';
 
 const Navbar = () => {
   const dispatch = useDispatch();
-
+  const activities=useSelector((state)=>state.activity)
+  const [selectActivity,setSelectActivity]=useState("")
+  const [selectContinent, setSelectContinent]=useState("")
   const handleOrder = (event) => {
     dispatch(orderCountries(event.target.value));
     console.log(event.target.value);
@@ -17,12 +20,30 @@ const Navbar = () => {
     dispatch(reset())
    }
 
-  const handleFilter = (event) => {
-    dispatch(filterforcontinent(event.target.value));
+   const handleFilterByActivity=(event)=>{
+    setSelectActivity(event.target.value)
+    dispatch(
+      filter({
+        continentFilter: selectContinent,
+        activityFilter: event.target.value,
+      })
+    );
+   }
+
+  const handleFilterByContinent = (event) => {
+    setSelectContinent(event.target.value)
+    dispatch(
+      filter({
+        continentFilter: event.target.value,
+        activityFilter: selectActivity,
+      })
+    )
   };
-const HandlerPoblacion = (event) =>{
-  dispatch(orderForPoblacion(event.target.value))
-}
+
+  const HandlerPoblacion = (event) =>{
+    dispatch(orderForPoblacion(event.target.value))
+  }
+
   return (
     <div className={style.nav}>
       <Search />
@@ -44,7 +65,7 @@ const HandlerPoblacion = (event) =>{
           <option value="Menos">Menor-Mayor</option>
           <option value="Mas">Mayor-Menor</option>
         </select>
-        <select className={style.select} onChange={handleFilter} value="">
+        <select className={style.select} onChange={handleFilterByContinent} value={selectContinent}>
           <option value="" disabled>
             Select Continent 
           </option>
@@ -55,6 +76,16 @@ const HandlerPoblacion = (event) =>{
           <option value="North America">North America</option>
           <option value="South America">South America</option>
           <option value="Antarctica">Antarctica</option>
+        </select>
+        <select className={style.select} onChange={handleFilterByActivity} value={selectActivity} >
+          <option value="">Todos</option>
+          {
+            activities.map((activity)=>{
+              return (
+                <option value={activity.name}>{activity.name}</option>
+              )
+            })
+          }
         </select>
         <select className={style.select} onChange={handleOrder} value="">
           <option value="" disabled>

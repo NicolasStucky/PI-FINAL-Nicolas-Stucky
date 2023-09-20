@@ -8,7 +8,7 @@ const Detail = () => {
   const detaild = useSelector((state) => state.detail);
   const dispatch = useDispatch();
   const { id } = useParams();
-
+  const countries=useSelector((state)=>state.countries)
   useEffect(() => {
     dispatch(getCountriesForId(id));
   }, [dispatch, id]);
@@ -16,7 +16,7 @@ const Detail = () => {
   if (!detaild) {
     return <div>Loading...</div>;
   }
-
+  console.log(countries)
   return (
     <div>
       <div className={style.contenedor} key={detaild.id}>
@@ -40,6 +40,7 @@ const Detail = () => {
         {detaild.Activities ? (
           <div>
             {detaild.Activities.map((activity) => (
+              
               <div key={activity.id} className={style.activityContainer}>
                 <h3>Activities</h3>
                 <div className={style.activityDetails}>

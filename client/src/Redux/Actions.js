@@ -3,14 +3,14 @@ import {
   GET_ALL_CHARACTER,
   GET_FOR_ID,
   GET_FOR_NAME,
-  FILTER_FOR_CONTINENT,
   ORDER,
   SET_PAGE,
   CREATE_ACTIVITY,
   CREATE_ACTIVITY_FAILURE,
   RESET,
   ORDER_POBLACION,
-  GET_ACTIVITY
+  GET_ACTIVITY,
+  FILTER
 } from "./ActionTypes";
 
 export const getcharacter = () => {
@@ -59,10 +59,10 @@ export const getCountriesForName = (name) => {
   };
 };
 
-export const filterforcontinent = (continent) => {
+export const filter = ({continentFilter, activityFilter}) => {
   return {
-    type: FILTER_FOR_CONTINENT,
-    payload: continent,
+    type: FILTER,
+    payload: {continentFilter, activityFilter},
   };
 };
 
